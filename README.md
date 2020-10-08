@@ -26,7 +26,9 @@ deploy_job:
 ```
 
 ## Usage with overriding the default environment variable
-In case the name of the SSH Private Key environemnt variable is already set, it's possible to override by setting explicitely again the variable into the key.
+In case the name of the SSH Private Key environemnt variable name is already set, it's possible to use another name.
+
+Just `echo` the environment variable into `~/ssh_key` (set as the IdentityFile in ssh config)
 
 Example with Gitlab
 ```yml
@@ -34,7 +36,7 @@ Example with Gitlab
 deploy_job:
   image: altdsoy/alpine-ssh
   script:
-    - echo -e "$CUSTOM_SERVER_SSH" > ~/.ssh/id_ed25519
+    - echo "$CUSTOM_SERVER_SSH" > ~/ssh_key
     - ssh example.com 'rm -rf ~/project && mkdir -p ~/project'
     - scp -r ./project example.com:~/project/
     - ssh example.com 'docker-compose up -d'
