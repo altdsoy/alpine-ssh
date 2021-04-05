@@ -3,6 +3,9 @@ This is a minimal Alpine image based on `alpine:latest` that embeds an SSH clien
 
 Useful within CI/CD pipelines when it's necessary to SSH into a server.
 
+*Use Github version of this repo (instead of Gitlab) because of automatic Build trigger from Docker Hub*
+*Push to both Gitlab (origin) and Github (github_build)*
+*Update Image upon new Alpine version by manually triggering a build in [Docker Hub build tab](https://hub.docker.com/repository/docker/altdsoy/alpine-ssh/builds)*
 ## Usage in terminal
 ```sh
 docker pull altdsoy/alpine-ssh
